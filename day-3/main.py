@@ -10,7 +10,7 @@ gearNums = defaultdict(list)
 for line in open("./input.txt").readlines():
     board.append(line.strip())
 
-def considerNumberNeighbords(startY, startX, endY, endX, num):
+def considerNumberNeighbors(startY, startX, endY, endX, num):
     global gearNums
     for y in range(startY, endY + 1):
         for x in range(startX, endX + 1):
@@ -26,7 +26,7 @@ numPattern = re.compile("\d+")
 
 for rowNum in range(len(board)):
     for match in re.finditer(numPattern, board[rowNum]):
-        if considerNumberNeighbords(
+        if considerNumberNeighbors(
             rowNum - 1,
             match.start() - 1,
             rowNum + 1,
